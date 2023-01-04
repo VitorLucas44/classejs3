@@ -23,10 +23,8 @@ class Objet {
 }
 
 
-    const objet1 = new Objet('Chaise', 100);
-    const objet2 = new Objet('livre', 5);
-
-    
+    const objet1 = new Objet('Chaise', 10);
+    const objet2 = new Objet('table', 5);
 
     const boite = [objet1, objet2];
 
@@ -46,6 +44,7 @@ class Objet {
         this.sac.push(objet);
         this.argent -= objet.prix;
         vendeur.argent += objet.prix;
+        console.log(`${this.nom} ! Merci pour votre achat de la ${objet.nom}`);
         } else {
         console.log(`${this.nom} n'a pas assez d'argent pour acheter ${objet.nom}`);
         }
@@ -59,5 +58,4 @@ class Objet {
     personnage2.prendre(boite[1]);
     
     personnage1.acheter(personnage2, personnage2.sac[0]);
-    
-    console.log(personnage1)
+
