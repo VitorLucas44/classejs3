@@ -28,3 +28,36 @@ class Objet {
 
     
 
+    const boite = [objet1, objet2];
+
+    class Personnage {
+    constructor(nom, sac, argent) {
+        this.nom = nom;
+        this.sac = sac;
+        this.argent = argent;
+    }
+    
+    prendre(objet) {
+        this.sac.push(objet);
+}
+    
+    acheter(vendeur, objet) {
+        if (this.argent >= objet.prix) {
+        this.sac.push(objet);
+        this.argent -= objet.prix;
+        vendeur.argent += objet.prix;
+        } else {
+        console.log(`${this.nom} n'a pas assez d'argent pour acheter ${objet.nom}`);
+        }
+    }
+}
+    
+    const personnage1 = new Personnage('Vitor', [], 20);
+    const personnage2 = new Personnage('Lucas', [], 15);
+    
+    personnage1.prendre(boite[0]);
+    personnage2.prendre(boite[1]);
+    
+    personnage1.acheter(personnage2, personnage2.sac[0]);
+    
+    console.log(personnage1)
